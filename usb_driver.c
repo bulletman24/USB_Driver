@@ -27,11 +27,11 @@ static struct usb_device_id pr_usb_table [] = {
         { }                      /* Terminating entry */
 };
 
-static int pr_probe () {
+static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
 	
 }
 
-static void pr_disconnect(){
+static void pr_disconnect(struct usb_interface *interface){
 	
 }
 
