@@ -13,14 +13,6 @@
 #define USB_ID_VENDOR	( 0x2a47 ) /*Macro for the ID of the vendor*/
 #define USB_ID_PRODUCT	( 0xf003 ) /*Mcro for the ID of the product*/
 
-
-static struct usb_driver pr_driver = { /* This structure defines which devices the driver supports and which functions to call when a device supported by the driver is inserted or removed */
-        .name        = "Open-Cosmos project",
-        .probe       = pr_probe,
-	.disconnect  = pr_disconnect,
-        .id_table    = pr_usb_table,
-};
-
 static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
 	//struct usb_host_interface *iface_desc = interface->cur_altsetting; //iface_desc is defined as a usb_host_interface structure which contains all the interface descriptors
 
@@ -29,7 +21,7 @@ static int pr_probe (struct usb_interface *interface, const struct usb_device_id
 }
 
 static void pr_disconnect(struct usb_interface *interface){
-	dev_info(&interface->dev, "USB has been unplugged")
+	dev_info(&interface->dev, "USB has been unplugged");
 }
 
 /* Lists different types of USB devices that are supported, in this case added in macros */
@@ -55,8 +47,7 @@ static int __init usb_pr_init(void) /* Usbs must be registered once plugged in*/
         /* register this driver with the USB subsystem */
         result = usb_register(&pr_driver);
 	if (result < 0) {
-		err("usb_register failed for the "__FILE__ "driver."
-                    "Error number %d", result);
+		printk("There has been an error")
                 return -1;
         }
 
