@@ -47,7 +47,7 @@ static int __init usb_pr_init(void) /* Usbs must be registered once plugged in*/
         /* register this driver with the USB subsystem */
         result = usb_register(&pr_driver);
 	if (result < 0) {
-		printk("There has been an error")
+		printk("There has been an error");
                 return -1;
         }
 
@@ -61,3 +61,6 @@ static void __exit usb_pr_exit(void) /* Usbs are unregistered once the device is
 
 module_init(usb_pr_init);
 module_exit(usb_pr_exit);
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR(DRIVER_AUTHOR);
+MODULE_DESCRIPTION(DRIVER_DESC);
