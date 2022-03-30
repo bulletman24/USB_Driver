@@ -28,11 +28,11 @@ static struct usb_device_id pr_usb_table [] = {
 };
 
 static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
-	
+	dev_info(&interface->dev, "USB detected with Vendor ID: 0x%02x an Product ID: 0x%02x/n", id->idVendor, id->idProduct)
 }
 
 static void pr_disconnect(struct usb_interface *interface){
-	
+	dev_info(&interface->dev, "USB has been unplugged")
 }
 
 MODULE_DEVICE_TABLE (usb, pr_usb_table);
