@@ -62,5 +62,5 @@ static void __exit usb_pr_exit(void) /* Usbs are unregistered once the device is
 module_init(usb_pr_init);
 module_exit(usb_pr_exit);
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR(DRIVER_AUTHOR);
-MODULE_DESCRIPTION(DRIVER_DESC);
+MODULE_AUTHOR("tegues");
+MODULE_DESCRIPTION("OC project");
