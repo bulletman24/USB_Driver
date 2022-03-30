@@ -28,7 +28,11 @@ static struct usb_device_id pr_usb_table [] = {
 };
 
 static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
-	dev_info(&interface->dev, "USB detected with Vendor ID: 0x%02x an Product ID: 0x%02x/n", id->idVendor, id->idProduct)
+	unsigned int endpoints;
+	struct usb_host_interface *iface_desc = interface->cur_altsetting; //iface_desc is defined as a usb_host_interface structure which contains all the interface descriptors
+
+	dev_info(&interface->dev, "USB detected with Vendor ID: 0x%02x an Product ID: 0x%02x/n", id->idVendor, id->idProduct);
+	return 0;
 }
 
 static void pr_disconnect(struct usb_interface *interface){
