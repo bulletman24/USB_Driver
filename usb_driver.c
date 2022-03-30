@@ -58,7 +58,6 @@ static int __init usb_pr_init(void) /* Usbs must be registered once plugged in*/
 
 static void __exit usb_pr_exit(void) /* Usbs are unregistered once the device is being unplugged*/
 {
-        /* deregister this driver with the USB subsystem */
         usb_deregister(&pr_driver);
 }
 module_init(usb_pr_init);
