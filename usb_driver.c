@@ -9,7 +9,7 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/usb.h>
-#include <linux/usbch9.h>
+#include <linux/usb/ch9.h>
 
 #define USB_ID_VENDOR	( 0x2a47 ) /*Macro for the ID of the vendor*/
 #define USB_ID_PRODUCT	( 0xf003 ) /*Mcro for the ID of the product*/
