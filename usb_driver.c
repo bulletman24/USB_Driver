@@ -9,22 +9,13 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/usb.h>
-#include <linux/usb/ch9.h>
 
 #define USB_ID_VENDOR	( 0x2a47 ) /*Macro for the ID of the vendor*/
 #define USB_ID_PRODUCT	( 0xf003 ) /*Mcro for the ID of the product*/
 
 static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
 	struct usb_host_interface *iface_desc = interface->cur_altsetting; //iface_desc is defined as a usb_host_interface structure which contains all the interface descriptors
-<<<<<<< HEAD
-<<<<<<< HEAD
 	printk(KERN_INFO "Device name: 0x%x\n", iface_desc->desc.bLength);
-=======
-	printk(KERN_INFO "Device name: %s\n", iface_desc->desc.iProduct);
->>>>>>> 132fa0db2f2435382a3d00ebd212da0132af88e5
-=======
-	printk(KERN_INFO "Device name: %s\n", iface_desc->desc.iProduct);
->>>>>>> 132fa0db2f2435382a3d00ebd212da0132af88e5
 	dev_info(&interface->dev, "USB detected with Vendor ID: 0x%02x an Product ID: 0x%02x/n", id->idVendor, id->idProduct);
 	return 0;
 }
