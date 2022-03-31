@@ -15,7 +15,7 @@
 
 static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
 	struct usb_host_interface *iface_desc = interface->cur_altsetting; //iface_desc is defined as a usb_host_interface structure which contains all the interface descriptors
-	printk(KERN_INFO "Device name: 0x%x\n", iface_desc->desc.bLength);
+	printk(KERN_INFO "bLength from interface descriptor: 0x%x\n", iface_desc->desc.bLength);
 	dev_info(&interface->dev, "USB detected with Vendor ID: 0x%02x an Product ID: 0x%02x/n", id->idVendor, id->idProduct);
 	return 0;
 }
