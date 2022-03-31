@@ -15,7 +15,7 @@
 
 static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
 	struct usb_host_interface *iface_desc = interface->cur_altsetting; //iface_desc is defined as a usb_host_interface structure which contains all the interface descriptors
-	pr_info("bLength: 0x%x\n", iface_desc->desc.bLength);
+	printk(KERN_INFO "Device name: %s\n", iface_desc->desc.iProduct);
 	dev_info(&interface->dev, "USB detected with Vendor ID: 0x%02x an Product ID: 0x%02x/n", id->idVendor, id->idProduct);
 	return 0;
 }
@@ -47,7 +47,7 @@ static int __init usb_pr_init(void) /* Usbs must be registered once plugged in*/
         /* register this driver with the USB subsystem */
         result = usb_register(&pr_driver);
 	if (result < 0) {
-		printk("There has been an error");
+		printk(KERN_INFO "There has been an error");
                 return -1;
         }
 
