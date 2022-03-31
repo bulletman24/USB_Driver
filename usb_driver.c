@@ -12,10 +12,18 @@
 
 #define USB_ID_VENDOR	( 0x2a47 ) /*Macro for the ID of the vendor*/
 #define USB_ID_PRODUCT	( 0xf003 ) /*Mcro for the ID of the product*/
+#define PRINT_MAIN_IFACE_DESCRIPTORS (a){
+	printk("Length: 0x%x\n", a.bLength);
+        printk("Descriptor type: 0x%x\n", a.bDescriptorType);
+        printk("Interface number: 0x%x\n", a.bInterfaceNumber);
+        printk("Alternate setting: 0x%x\n", a.bAlternateSetting);
+        printk("Number of endpoints in this interface desc.: 0x%x\n", a.bNumEndpoints);
+}
+
 
 static int pr_probe (struct usb_interface *interface, const struct usb_device_id *id) {
 	struct usb_host_interface *iface_desc = interface->cur_altsetting; //iface_desc is defined as a usb_host_interface structure which contains all the interface descriptors
-	printk("Number of endpoints: 0x%x\n", iface_desc->desc.bNumEndpoints);
+	PRINT_MAIN_IFACE_DESCRIPTORS(iface_desc->desc);
 	dev_info(&interface->dev, "USB detected with Vendor ID: 0x%02x an Product ID: 0x%02x/n", id->idVendor, id->idProduct);
 	return 0;
 }
